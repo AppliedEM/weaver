@@ -1,0 +1,25 @@
+<project>
+
+    <target name="clean">
+        <delete dir="build"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="build/com/appliedenergetics/weaver"/>
+        <javac srcdir="src" destdir="build/"/>
+    </target>
+
+    <target name="jar">
+        <mkdir dir="dist/jar"/>
+        <jar destfile="dist/jar/weaver.jar" basedir="build">
+            <manifest>
+                <attribute name="Main-Class" value="com.appliedenergetics.weaver.main"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="run">
+        <java jar="dist/jar/weaver.jar" fork="true"/>
+    </target>
+
+</project>
